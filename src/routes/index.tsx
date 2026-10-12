@@ -119,6 +119,8 @@ function Index() {
           <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
             <a href="#sobre" className="transition-colors hover:text-foreground">Sobre</a>
             <a href="#destinos" className="transition-colors hover:text-foreground">Destinos</a>
+            <a href="#hoteis-passagens" className="transition-colors hover:text-foreground">Hotéis & Voos</a>
+            <a href="#agenda" className="transition-colors hover:text-foreground">Agendar</a>
             <a href="#como-funciona" className="transition-colors hover:text-foreground">Como funciona</a>
           </nav>
           <WhatsAppButton className="!px-5 !py-2.5 text-xs">Falar no WhatsApp</WhatsAppButton>
