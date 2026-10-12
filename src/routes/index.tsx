@@ -19,18 +19,39 @@ const timeSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"
 
 function AgendaSection() {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [destination, setDestination] = useState("Itália");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [phoneTouched, setPhoneTouched] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
-  const isComplete = name.trim() && date && time;
+
+  const phoneDigits = phone.replace(/\D/g, "");
+  // Aceita 55 + DDD (2) + número (8 ou 9) => 12 ou 13 dígitos, ou apenas DDD + número => 10 ou 11.
+  const phoneValid = /^(55)?\d{10,11}$/.test(phoneDigits) && (phoneDigits.startsWith("55") ? phoneDigits.length === 12 || phoneDigits.length === 13 : true) && phoneDigits.length >= 10;
+  const phoneError = phoneTouched && !phoneValid
+    ? phoneDigits.length === 0
+      ? "Informe seu número de WhatsApp."
+      : "Número incompleto. Use DDD + número, ex.: (48) 99999-0743."
+    : "";
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  };
+
+  const isComplete = name.trim() && phoneValid && date && time;
 
   const scheduleUrl =
     `https://wa.me/${WHATSAPP_NUMBER}?text=` +
     encodeURIComponent(
       `Olá! Quero agendar uma conversa com a DestinoCasal.\n\n` +
         `Nome: ${name.trim()}\n` +
+        `WhatsApp: ${phoneDigits}\n` +
         `Destino de interesse: ${destination}\n` +
         `Data: ${date ? new Date(date + "T12:00:00").toLocaleDateString("pt-BR") : ""}\n` +
         `Horário: ${time}\n\n` +
