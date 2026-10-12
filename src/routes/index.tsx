@@ -28,8 +28,12 @@ function AgendaSection() {
   const today = new Date().toISOString().split("T")[0];
 
   const phoneDigits = phone.replace(/\D/g, "");
-  // Aceita 55 + DDD (2) + número (8 ou 9) => 12 ou 13 dígitos, ou apenas DDD + número => 10 ou 11.
-  const phoneValid = /^(55)?\d{10,11}$/.test(phoneDigits) && (phoneDigits.startsWith("55") ? phoneDigits.length === 12 || phoneDigits.length === 13 : true) && phoneDigits.length >= 10;
+  // Remove o código do país 55 quando presente e exige DDD (2) + número (8 ou 9).
+  const nationalDigits =
+    phoneDigits.startsWith("55") && (phoneDigits.length === 12 || phoneDigits.length === 13)
+      ? phoneDigits.slice(2)
+      : phoneDigits;
+  const phoneValid = nationalDigits.length === 10 || nationalDigits.length === 11;
   const phoneError = phoneTouched && !phoneValid
     ? phoneDigits.length === 0
       ? "Informe seu número de WhatsApp."
@@ -107,10 +111,7 @@ function AgendaSection() {
                   type="tel"
                   inputMode="numeric"
                   value={phone}
-                  onChange={(e) => {
-                    setPhone(formatPhone(e.target.value));
-                    if (phoneTouched) return;
-                  }}
+                  onChange={(e) => setPhone(formatPhone(e.target.value))}
                   onBlur={() => setPhoneTouched(true)}
                   placeholder="(48) 99999-0743"
                   aria-invalid={Boolean(phoneError)}
