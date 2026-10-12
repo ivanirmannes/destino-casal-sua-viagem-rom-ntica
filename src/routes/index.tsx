@@ -1,12 +1,24 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, MapPin, MessageCircle, Sparkles, CalendarHeart, Compass } from "lucide-react";
+import {
+  Heart,
+  MapPin,
+  MessageCircle,
+  Sparkles,
+  CalendarHeart,
+  Compass,
+  BedDouble,
+  Plane,
+  CalendarCheck,
+} from "lucide-react";
 import heroItaly from "@/assets/hero-italy.jpg";
 import italy from "@/assets/italy.jpg";
 import france from "@/assets/france.jpg";
 import greece from "@/assets/greece.jpg";
 
+const WHATSAPP_NUMBER = "5548991920743";
 const WHATSAPP_URL =
-  "https://wa.me/5548991920743?text=" +
+  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
   encodeURIComponent("Olá! Quero planejar uma viagem a dois com a DestinoCasal.");
 
 export const Route = createFileRoute("/")({
