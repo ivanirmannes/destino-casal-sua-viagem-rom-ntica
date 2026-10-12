@@ -6,7 +6,7 @@ import france from "@/assets/france.jpg";
 import greece from "@/assets/greece.jpg";
 
 const WHATSAPP_URL =
-  "https://wa.me/5511999999999?text=" +
+  "https://wa.me/5548991920743?text=" +
   encodeURIComponent("Olá! Quero planejar uma viagem a dois com a DestinoCasal.");
 
 export const Route = createFileRoute("/")({
