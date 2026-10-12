@@ -19,18 +19,46 @@ const timeSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"
 
 function AgendaSection() {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [destination, setDestination] = useState("Itália");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [phoneTouched, setPhoneTouched] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
-  const isComplete = name.trim() && date && time;
+
+  const phoneDigits = phone.replace(/\D/g, "");
+  // Remove o código do país 55 quando presente e exige DDD (2) + número (8 ou 9).
+  const nationalDigits =
+    phoneDigits.startsWith("55") && (phoneDigits.length === 12 || phoneDigits.length === 13)
+      ? phoneDigits.slice(2)
+      : phoneDigits;
+  const phoneValid = nationalDigits.length === 10 || nationalDigits.length === 11;
+  const phoneError = phoneTouched && !phoneValid
+    ? phoneDigits.length === 0
+      ? "Informe seu número de WhatsApp."
+      : "Número incompleto. Use DDD + número, ex.: (48) 99999-0743."
+    : "";
+
+  const formatPhone = (value: string) => {
+    let digits = value.replace(/\D/g, "");
+    // Descarta o código do país 55 digitado pelo usuário.
+    if (digits.startsWith("55") && digits.length > 11) digits = digits.slice(2);
+    digits = digits.slice(0, 11);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  };
+
+  const isComplete = name.trim() && phoneValid && date && time;
 
   const scheduleUrl =
     `https://wa.me/${WHATSAPP_NUMBER}?text=` +
     encodeURIComponent(
       `Olá! Quero agendar uma conversa com a DestinoCasal.\n\n` +
         `Nome: ${name.trim()}\n` +
+        `WhatsApp: ${phoneDigits}\n` +
         `Destino de interesse: ${destination}\n` +
         `Data: ${date ? new Date(date + "T12:00:00").toLocaleDateString("pt-BR") : ""}\n` +
         `Horário: ${time}\n\n` +
@@ -78,6 +106,29 @@ function AgendaSection() {
                   placeholder="Como podemos te chamar?"
                   className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                 />
+              </div>
+              <div>
+                <label htmlFor="agenda-whatsapp" className="text-sm font-medium">Seu WhatsApp</label>
+                <input
+                  id="agenda-whatsapp"
+                  type="tel"
+                  inputMode="numeric"
+                  value={phone}
+                  onChange={(e) => setPhone(formatPhone(e.target.value))}
+                  onBlur={() => setPhoneTouched(true)}
+                  placeholder="(48) 99999-0743"
+                  aria-invalid={Boolean(phoneError)}
+                  className={`mt-2 w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
+                    phoneError ? "border-destructive" : "border-input"
+                  }`}
+                />
+                {phoneError ? (
+                  <p className="mt-1.5 text-xs text-destructive">{phoneError}</p>
+                ) : (
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    Com DDD, ex.: (48) 99999-0743. É por aqui que confirmamos.
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="agenda-destino" className="text-sm font-medium">Destino de interesse</label>
