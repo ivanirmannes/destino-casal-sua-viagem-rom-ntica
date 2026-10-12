@@ -84,7 +84,7 @@ const steps = [
   {
     icon: CalendarHeart,
     title: "Tudo reservado",
-    text: "Cuidamos de hotéis, passeios, restaurantes e traslados. Vocês só fazem as malas.",
+    text: "Cuidamos de hotéis, passagens aéreas, passeios, restaurantes e traslados. Vocês só fazem as malas.",
   },
   {
     icon: Sparkles,
