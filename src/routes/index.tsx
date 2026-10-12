@@ -101,6 +101,32 @@ function AgendaSection() {
                 />
               </div>
               <div>
+                <label htmlFor="agenda-whatsapp" className="text-sm font-medium">Seu WhatsApp</label>
+                <input
+                  id="agenda-whatsapp"
+                  type="tel"
+                  inputMode="numeric"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(formatPhone(e.target.value));
+                    if (phoneTouched) return;
+                  }}
+                  onBlur={() => setPhoneTouched(true)}
+                  placeholder="(48) 99999-0743"
+                  aria-invalid={Boolean(phoneError)}
+                  className={`mt-2 w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
+                    phoneError ? "border-destructive" : "border-input"
+                  }`}
+                />
+                {phoneError ? (
+                  <p className="mt-1.5 text-xs text-destructive">{phoneError}</p>
+                ) : (
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    Com DDD, ex.: (48) 99999-0743. É por aqui que confirmamos.
+                  </p>
+                )}
+              </div>
+              <div>
                 <label htmlFor="agenda-destino" className="text-sm font-medium">Destino de interesse</label>
                 <select
                   id="agenda-destino"
