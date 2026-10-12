@@ -12,7 +12,7 @@ import { AboutSection } from "@/components/sections/about";
 import { AgendaSection } from "@/components/sections/agenda";
 import { DestinationsSection } from "@/components/sections/destinations";
 import { FinalCta } from "@/components/sections/final-cta";
-import { Footer as _unusedFooter } from "@/components/sections/footer";
+import { SiteFooter } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { HotelsAndFlightsSection } from "@/components/sections/hotels-and-flights";
