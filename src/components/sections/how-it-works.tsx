@@ -8,7 +8,9 @@ export function HowItWorksSection() {
   return (
     <section id="como-funciona" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">Como funciona</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+          Como funciona
+        </p>
         <h2 className="mt-4 font-display text-4xl font-semibold md:text-5xl">
           Do primeiro olá ao embarque, sem estresse
         </h2>

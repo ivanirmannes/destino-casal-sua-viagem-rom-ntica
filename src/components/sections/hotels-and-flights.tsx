@@ -17,12 +17,16 @@ export function HotelsAndFlightsSection() {
           Hospedagem e voos resolvidos em um só lugar
         </h2>
         <p className="mt-6 text-lg text-muted-foreground">
-          Além do roteiro, cuidamos das duas partes mais trabalhosas da viagem: onde dormir e como chegar.
+          Além do roteiro, cuidamos das duas partes mais trabalhosas da viagem: onde dormir e como
+          chegar.
         </p>
       </div>
       <div className="mt-16 grid gap-8 md:grid-cols-2">
         {services.map((service) => (
-          <article key={service.title} className="rounded-3xl border border-border bg-card p-10 shadow-sm">
+          <article
+            key={service.title}
+            className="rounded-3xl border border-border bg-card p-10 shadow-sm"
+          >
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
               <service.icon className="h-7 w-7 text-primary" />
             </div>
