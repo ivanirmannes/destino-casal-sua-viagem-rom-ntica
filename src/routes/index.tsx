@@ -2,7 +2,7 @@
  * Página única da DestinoCasal.
  *
  * Este arquivo faz só duas coisas: declara os metadados da página (o título e a
- * descrição que aparecem no Google e no zap Zap ao compartilhar o link) e monta
+ * descrição que aparecem no Google e no WhatsApp ao compartilhar o link) e monta
  * as seções na ordem em que são vistas. Conteúdo e aparência vivem em
  * src/components/sections; dados de texto em src/data.
  */
@@ -27,9 +27,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: BRAND.description },
       { property: "og:title", content: "DestinoCasal — Viagens românticas sob medida" },
       { property: "og:description", content: BRAND.description },
-      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
 });
 

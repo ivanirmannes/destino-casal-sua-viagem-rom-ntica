@@ -8,6 +8,7 @@ import { MessageCircle } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { WHATSAPP_URL } from "@/config/site";
+import { Button } from "@/components/ui/button";
 
 type WhatsAppButtonProps = {
   children: ReactNode;
@@ -16,14 +17,14 @@ type WhatsAppButtonProps = {
 
 export function WhatsAppButton({ children, className = "" }: WhatsAppButtonProps) {
   return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 text-sm font-semibold text-whatsapp-foreground shadow-lg transition-transform hover:scale-[1.03] ${className}`}
+    <Button
+      asChild
+      className={`h-auto rounded-full bg-whatsapp px-7 py-3.5 text-sm font-semibold text-whatsapp-foreground shadow-lg hover:bg-whatsapp/90 motion-safe:transition-transform motion-safe:hover:scale-[1.03] ${className}`}
     >
-      <MessageCircle className="h-5 w-5" aria-hidden />
-      {children}
-    </a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+        <MessageCircle className="shrink-0" aria-hidden />
+        {children}
+      </a>
+    </Button>
   );
 }
