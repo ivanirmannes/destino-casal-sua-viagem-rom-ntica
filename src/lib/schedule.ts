@@ -24,7 +24,7 @@ export const AGENDA_DESTINATION_OPTIONS = [
   "Itália",
   "França",
   "Grécia",
-  "Ainda não decidiu",
+  "Ainda não decidi",
 ] as const;
 
 /**
@@ -59,9 +59,9 @@ export function formatAppointmentDate(isoDate: string): string {
 export function isAppointmentReady(appointment: Appointment): boolean {
   return Boolean(
     appointment.name.trim() &&
-      isWhatsAppPhoneValid(appointment.phone) &&
-      appointment.date &&
-      appointment.time,
+    isWhatsAppPhoneValid(appointment.phone) &&
+    appointment.date &&
+    appointment.time,
   );
 }
 

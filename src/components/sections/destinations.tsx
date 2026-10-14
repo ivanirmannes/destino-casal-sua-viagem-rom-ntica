@@ -11,7 +11,9 @@ export function DestinationsSection() {
     <section id="destinos" className="bg-secondary/60 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">Nossos destinos</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+            Nossos destinos
+          </p>
           <h2 className="mt-4 font-display text-4xl font-semibold md:text-5xl">
             Três países, infinitas formas de se apaixonar
           </h2>

@@ -23,8 +23,8 @@ export function FinalCta() {
           Prontos para começar a planejar?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">
-          Conte para a gente no WhatsApp quando e para onde vocês querem ir. Respondemos rapidinho
-          e sem compromisso.
+          Conte para a gente no WhatsApp quando e para onde vocês querem ir. Respondemos rapidinho e
+          sem compromisso.
         </p>
         <WhatsAppButton className="mt-10">Chamar no WhatsApp</WhatsAppButton>
       </div>

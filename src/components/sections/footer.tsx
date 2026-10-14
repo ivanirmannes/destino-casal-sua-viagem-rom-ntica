@@ -10,7 +10,9 @@ export function SiteFooter() {
           <Logo />
         </p>
         <p>{BRAND.tagline}</p>
-        <p>© {new Date().getFullYear()} {BRAND.name}. Todos os direitos reservados.</p>
+        <p>
+          © {new Date().getFullYear()} {BRAND.name}. Todos os direitos reservados.
+        </p>
       </div>
     </footer>
   );

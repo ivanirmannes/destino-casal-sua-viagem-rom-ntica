@@ -92,8 +92,6 @@ describe("links de WhatsApp", () => {
 
   it("codifica a mensagem no link wa.me", () => {
     const url = buildWhatsAppUrl("5548991920743", "Olá! Quero planejar.");
-    expect(url).toBe(
-      "https://wa.me/5548991920743?text=Ol%C3%A1!%20Quero%20planejar.",
-    );
+    expect(url).toBe("https://wa.me/5548991920743?text=Ol%C3%A1!%20Quero%20planejar.");
   });
 });
