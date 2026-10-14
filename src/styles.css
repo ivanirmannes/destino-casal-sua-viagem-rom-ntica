@@ -34,6 +34,8 @@
   --color-ring-offset-background: var(--background);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-cover-foreground: var(--cover-foreground);
+  --color-cover-shade: var(--cover-shade);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
 }
@@ -62,6 +64,33 @@
   --ring: oklch(0.52 0.11 45);
   --whatsapp: oklch(0.62 0.16 150);
   --whatsapp-foreground: oklch(0.99 0 0);
+  --cover-foreground: oklch(0.99 0 0);
+  --cover-shade: oklch(0.12 0 0);
+}
+
+/* A área estável evita saltos quando a barra de endereço móvel recolhe.
+   A altura é mínima: textos ampliados continuam livres para crescer. */
+.travel-cover {
+  min-height: calc(100vh - 3rem);
+  min-height: calc(100svh - 3rem);
+}
+
+/* A foto horizontal tem o casal à esquerda do centro. Preserve esse foco
+   no recorte vertical, sem esticar a imagem nem cortar uma das pessoas. */
+.travel-cover-image {
+  object-position: 35% center;
+}
+
+@media (min-width: 640px) {
+  .travel-cover-image {
+    object-position: 40% center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .travel-cover-image {
+    object-position: center;
+  }
 }
 
 @layer base {
@@ -75,7 +104,10 @@
     font-family: var(--font-body);
   }
 
-  h1, h2, h3, .font-display {
+  h1,
+  h2,
+  h3,
+  .font-display {
     font-family: var(--font-display);
   }
 }

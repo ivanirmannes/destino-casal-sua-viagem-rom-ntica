@@ -1,4 +1,5 @@
 <!-- LOVABLE:BEGIN -->
+
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
 > published git history — force pushing, or rebasing/amending/squashing commits
@@ -7,6 +8,7 @@
 >
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
+
 <!-- LOVABLE:END -->
 
 ## Project rules
@@ -17,3 +19,4 @@
 - Business rules (Brazilian phone validation, agenda readiness, the `wa.me` link) are pure functions in `src/lib/whatsapp.ts` and `src/lib/schedule.ts`, covered by tests in `src/test/`. Why: these rules are the site's whole conversion path, so they need to be provable without a browser.
 - Colors, fonts and radii come from the tokens in `src/styles.css`; components use semantic utilities (`bg-whatsapp`, `text-primary`, `font-display`), never literal hex values. Why: the palette is re-themed per brand.
 - All user-facing copy is Brazilian Portuguese (`pt-BR`), including the 404 and error screens. Why: the audience is Brazilian couples.
+- Cover focal points and stable viewport sizing live in `src/styles.css`; the cover keeps the original local asset and uses content-driven minimum height. Why: narrow screens must preserve subjects without distortion or clipping enlarged text.
