@@ -24,7 +24,7 @@ export const AGENDA_DESTINATION_OPTIONS = [
   "Itália",
   "França",
   "Grécia",
-  "Ainda não decidiu",
+  "Ainda não decidi",
 ] as const;
 
 /**

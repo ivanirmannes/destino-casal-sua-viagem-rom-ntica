@@ -73,7 +73,7 @@ describe("opções oferecidas na agenda", () => {
       "Itália",
       "França",
       "Grécia",
-      "Ainda não decidiu",
+      "Ainda não decidi",
     ]);
   });
 
