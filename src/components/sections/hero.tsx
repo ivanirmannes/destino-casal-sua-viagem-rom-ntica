@@ -34,7 +34,7 @@ export function Hero() {
           <Heart className="h-4 w-4 shrink-0" aria-hidden="true" /> Consultoria de viagens para
           casais
         </p>
-        <h1 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] text-cover-foreground sm:text-5xl md:text-7xl">
+        <h1 className="max-w-3xl text-balance break-words font-display text-4xl font-semibold leading-[1.05] text-cover-foreground sm:text-5xl md:text-7xl">
           A viagem dos sonhos de vocês, desenhada a quatro mãos
         </h1>
         <p className="mt-5 max-w-xl text-base text-cover-foreground/85 sm:mt-6 sm:text-lg">
@@ -42,11 +42,13 @@ export function Hero() {
           vivam momentos inesquecíveis a dois.
         </p>
         <div className="mt-7 grid justify-items-start gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
-          <WhatsAppButton>Planejar nossa viagem</WhatsAppButton>
+          <WhatsAppButton className="max-w-full whitespace-normal text-center">
+            Planejar nossa viagem
+          </WhatsAppButton>
           <Button
             asChild
             variant="ghost"
-            className="h-auto rounded-full border border-cover-foreground/40 px-7 py-3.5 text-sm font-semibold text-cover-foreground hover:bg-cover-foreground/10 hover:text-cover-foreground"
+            className="h-auto max-w-full whitespace-normal rounded-full border border-cover-foreground/40 px-7 py-3.5 text-center text-sm font-semibold text-cover-foreground hover:bg-cover-foreground/10 hover:text-cover-foreground"
           >
             <a href="#destinos">Conhecer destinos</a>
           </Button>
