@@ -155,6 +155,8 @@ Abra o site em larguras de 320, 390, 768 e 1301px e confirme:
 - Não existe rolagem horizontal; o conteúdo continua acessível com zoom e em paisagem.
 - Os botões de contato continuam abrindo o WhatsApp com a mensagem pronta.
 
+Verificação realizada: foto carregada e sem rolagem horizontal nas quatro larguras, navegação para destinos e abertura de nova aba com o endereço oficial do WhatsApp (resposta externa simulada no teste). Os 29 testes passaram. Com texto ampliado para 200%, a capa cresce e mantém seus botões dentro da área, mas outras seções ainda geram rolagem horizontal e o logotipo do topo fica truncado; uma revisão completa de acessibilidade por ampliação está fora desta correção da foto.
+
 ## Subir para o GitHub
 
 1. No Lovable, abra a conexão **GitHub** e autorize sua conta.
