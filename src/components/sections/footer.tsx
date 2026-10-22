@@ -14,6 +14,10 @@ export function SiteFooter() {
           © {new Date().getFullYear()} {BRAND.name}. Todos os direitos reservados.
         </p>
       </div>
+      {/* Aviso de mostruário: o site é demonstrativo. */}
+      <p className="mx-auto mt-6 max-w-6xl px-6 text-center text-xs text-muted-foreground">
+        {BRAND.demoNotice}
+      </p>
     </footer>
   );
 }
