@@ -1,9 +1,11 @@
 /**
  * Seção "Quem somos": apresentação da consultoria + quatro números de vitrine.
  *
- * Atenção: os números abaixo são de demonstração. Confirme cada um com a
- * DestinoCasal antes de publicar — eles aparecem como informação real.
+ * Os números são fictícios: o site é um mostruário, e um aviso abaixo dos
+ * cards deixa isso claro para quem visita.
  */
+import { BRAND } from "@/config/site";
+
 const STATS = [
   { value: "+200", label: "casais atendidos" },
   { value: "3", label: "destinos dominados a fundo" },
@@ -42,6 +44,9 @@ export function AboutSection() {
               <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
+          <p className="col-span-2 text-center text-xs text-muted-foreground">
+            {BRAND.demoNotice}
+          </p>
         </div>
       </div>
     </section>

@@ -15,6 +15,8 @@ export const BRAND = {
   /** Descrição usada nos metadados (Google, WhatsApp, redes sociais). */
   description:
     "Consultoria de viagens especializada em roteiros personalizados para casais. Itália, França e Grécia planejados nos mínimos detalhes. Fale conosco pelo WhatsApp.",
+  /** Aviso exibido no site: é um mostruário, com números ilustrativos. */
+  demoNotice: "Site demonstrativo — números e depoimentos são ilustrativos.",
 } as const;
 
 /**
